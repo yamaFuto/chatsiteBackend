@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Thread;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 
 class ThreadController extends Controller
@@ -32,7 +33,11 @@ class ThreadController extends Controller
     public function store(Request $request)
     {
         $Thread = new Thread;
-        $Thread->content = $request->theme;
+        $Thread->theme = $request->theme;
+        $Thread->genre = $request->genre;
+        $Thread->date = Carbon::parse(now());
+        $Thread->created_at = now();
+        $Thread->updated_at = now();
         $Thread->sum = 0;
         $Thread->save();
     }

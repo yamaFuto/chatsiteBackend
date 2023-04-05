@@ -31,3 +31,5 @@ Route::get('/hello', function () {
 
 Route::post('/increment', [OthersController::class, 'incrementGoods']);
 
+Route::post("/theme", [othersController::class, "index"]);
+

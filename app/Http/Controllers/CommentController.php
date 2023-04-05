@@ -7,6 +7,7 @@ use App\Models\Comment;
 use App\Models\Thread;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 
 class CommentController extends Controller
@@ -37,6 +38,7 @@ class CommentController extends Controller
             $Comment->comment = $request->comment;
             $Comment->thread_id = (int) $request->thread_id;
             $Comment->goods = 0;
+            $Comment->date = Carbon::parse(now());
             $Comment->created_at = now();
             $Comment->updated_at = now();
             $Comment->save();

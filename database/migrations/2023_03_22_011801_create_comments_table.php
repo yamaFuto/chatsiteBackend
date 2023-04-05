@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string("comment");
             $table->unsignedBigInteger('thread_id');
             $table->integer("goods");
+            $table->string("date");
             $table->timestamps();
-
             $table->foreign('thread_id')->references('id')->on('threads');
         });
     }

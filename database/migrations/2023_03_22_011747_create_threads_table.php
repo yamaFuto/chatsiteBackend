@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string("theme");
             $table->integer("sum");
+            $table->string("genre");
+            $table->string("date");
             $table->timestamps();
         });
     }

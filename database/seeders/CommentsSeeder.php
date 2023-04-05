@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class CommentsSeeder extends Seeder
 {
@@ -17,6 +18,7 @@ class CommentsSeeder extends Seeder
         DB::table('comments')->insert([[
             'comment' => Str::random(20),
             'goods' => 0,
+            'date' => Carbon::parse(now()),
             'thread_id' => 1,
             'created_at' => now(),
             'updated_at' => now(),
@@ -24,6 +26,7 @@ class CommentsSeeder extends Seeder
         [
             'comment' => Str::random(20),
             'goods' => 0,
+            'date' => Carbon::parse(now()),
             'thread_id' => 1,
             'created_at' => now(),
             'updated_at' => now(),
@@ -31,6 +34,7 @@ class CommentsSeeder extends Seeder
         [
             'comment' => Str::random(20),
             'goods' => 0,
+            'date' => Carbon::parse(now()),
             'thread_id' => 2,
             'created_at' => now(),
             'updated_at' => now(),
