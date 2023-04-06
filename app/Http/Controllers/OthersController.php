@@ -31,7 +31,7 @@ class OthersController extends Controller
                 $query->where('theme', 'like', '%'.$value.'%');
             }
 
-            $threads = $query->paginate(20);
+            $threads = $query->paginate(5);
 
         }
 

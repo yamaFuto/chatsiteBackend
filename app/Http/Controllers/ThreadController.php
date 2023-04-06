@@ -15,7 +15,7 @@ class ThreadController extends Controller
      */
     public function index()
     {
-        $Thread = Thread::all();
+        $Thread = Thread::paginate(5);
         return $Thread;
     }
 
