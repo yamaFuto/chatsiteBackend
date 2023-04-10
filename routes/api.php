@@ -33,3 +33,5 @@ Route::post('/increment', [OthersController::class, 'incrementGoods']);
 
 Route::post("/theme", [othersController::class, "index"]);
 
+Route::post("/sort", [othersController::class, "sort"]);
+

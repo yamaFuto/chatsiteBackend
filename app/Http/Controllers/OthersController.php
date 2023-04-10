@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Thread;
 use App\Models\Comment;
+use Illuminate\Support\Facades\DB;
 
 class OthersController extends Controller
 {
@@ -36,5 +37,20 @@ class OthersController extends Controller
         }
 
         return $threads;
+    }
+
+    public function sort(Request $request)
+    {
+        $sort = $request->data;
+        $threads = DB::table('threads')->where("genre", "=", $sort)->paginate(5);
+        // $query = Thread::query();
+        // $query->where('genre', '=', $sort);
+        // $threads = $query->paginate(5);
+        // $result = $threads->paginate(5);
+        return  $threads;
+    }
+
+    public function searchSort() {
+        
     }
 }
