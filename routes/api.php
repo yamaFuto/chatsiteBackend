@@ -35,3 +35,5 @@ Route::post("/theme", [othersController::class, "index"]);
 
 Route::post("/sort", [othersController::class, "sort"]);
 
+Route::post("/sort/search", [othersController::class, "searchSort"]);
+

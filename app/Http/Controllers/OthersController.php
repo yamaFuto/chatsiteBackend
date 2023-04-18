@@ -50,7 +50,27 @@ class OthersController extends Controller
         return  $threads;
     }
 
-    public function searchSort() {
-        
+    public function searchSort(Request $request) {
+        $sort = $request->data;
+        $search = $request->word;
+        // クエリビルダ
+        $query =Thread::query();
+
+        if ($search) {
+
+            $spaceConversion = mb_convert_kana($search, 's');
+
+            $wordArraySearched = preg_split('/[\s,]+/', $spaceConversion, -1, PREG_SPLIT_NO_EMPTY);
+
+
+            foreach($wordArraySearched as $value) {
+                $query->where('theme', 'like', '%'.$value.'%');
+            }
+
+            $threads = $query->where('genre', '=', $sort)->paginate(5);
+
+        }
+
+        return $threads;
     }
 }
